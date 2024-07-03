@@ -10,9 +10,6 @@ def home(request):
 @require_GET
 def hello(request):
     visitor_name = request.GET.get(str('visitor_name'), 'Visitor')
-    r = requests.get('http://127.0.0.1:8000/')
-    print(r.status_code)
-    print(str(r.content))
     client_ip_x = request.META.get('HTTP_X_FORWARDED_FOR')
     url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=271d1234d3f497eed5b1d80a07b3fcd1'
     if client_ip_x:
